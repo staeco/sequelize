@@ -40,7 +40,7 @@
     "sequelize-pool": "^1.0.0",
     "toposort-class": "^1.0.1",
     "uuid": "^3.2.1",
-    "validator": "^10.4.0",
+    "validator": "10.10.0",
     "wkx": "^0.4.6"
   },
   "devDependencies": {
