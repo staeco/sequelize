@@ -27,6 +27,11 @@ describe(Support.getTestDialectTeaser('Model'), () => {
           withName: {
             attributes: ['username']
           },
+          noEmail: {
+            attributes: {
+              exclude: ['email']
+            }
+          },
           highAccess: {
             where: {
               [Op.or]: [
@@ -118,5 +123,28 @@ describe(Support.getTestDialectTeaser('Model'), () => {
           expect(records).to.have.length(2);
         });
     });
+
+    it('should be applied before query options for attributes exclude', function() {
+      return this.ScopeMe.scope('lowAccess').findOne({
+        attributes: {
+          exclude: ['other_value']
+        }
+      })
+        .then(record => {
+          expect(record.other_value).to.not.exist;
+        });
+    });
+
+    it('should be applied before query options for attributes include via scope exclude', function() {
+      return this.ScopeMe.scope('noEmail').findOne({
+        attributes: {
+          include: ['email']
+        }
+      })
+        .then(record => {
+          expect(record.email).to.not.exist;
+        });
+    });
+
   });
 });
