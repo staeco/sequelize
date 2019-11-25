@@ -62,6 +62,7 @@ class PostgresQueryGenerator extends AbstractQueryGenerator {
     const attrStr = [];
     let comments = '';
     let columnComments = '';
+    let partition = '';
 
     const quotedTable = this.quoteTable(tableName);
 
@@ -69,6 +70,9 @@ class PostgresQueryGenerator extends AbstractQueryGenerator {
       comments += `; COMMENT ON TABLE ${quotedTable} IS ${this.escape(options.comment)}`;
     }
 
+    if (options.partition) {
+      partition = ` PARTITION BY ${options.partition.type.toUpperCase()} (${this.quoteIdentifier(options.partition.attribute)})`;
+    }
     for (const attr in attributes) {
       const quotedAttr = this.quoteIdentifier(attr);
       const i = attributes[attr].indexOf('COMMENT ');
@@ -104,13 +108,17 @@ class PostgresQueryGenerator extends AbstractQueryGenerator {
       []
     ).join(',');
 
+    if (options.partition && options.partition.type.toLowerCase() === 'list') {
+      pks.push(this.quoteIdentifier(options.partition.attribute));
+    }
+
     if (pks.length > 0) {
-      attributesClause += `, PRIMARY KEY (${pks})`;
+      attributesClause += `, PRIMARY KEY (${pks.join(',')})`;
     }
 
     return `CREATE TABLE ${
       databaseVersion === 0 || semver.gte(databaseVersion, '9.1.0') ? 'IF NOT EXISTS ' : ''
-    }${quotedTable} (${attributesClause})${comments}${columnComments};`;
+    }${quotedTable} (${attributesClause})${partition}${comments}${columnComments};`;
   }
 
   dropTableQuery(tableName, options) {

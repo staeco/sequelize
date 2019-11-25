@@ -3442,12 +3442,18 @@ class Model {
     }
     let attributes = Object.keys(this.rawAttributes);
 
+    const scope = Utils.cloneDeep(this._scope);
+
     if (options.attributes.exclude) {
       attributes = attributes.filter(elem => !options.attributes.exclude.includes(elem));
     }
 
     if (options.attributes.include) {
       attributes = attributes.concat(options.attributes.include);
+    }
+
+    if (scope && scope.attributes && scope.attributes.exclude) {
+      attributes = attributes.filter(elem => !scope.attributes.exclude.includes(elem));
     }
 
     options.attributes = attributes;
