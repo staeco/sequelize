@@ -343,8 +343,7 @@ class Sequelize {
     this.dialect.queryGenerator.typeValidation = options.typeValidation;
 
     if (_.isPlainObject(this.options.operatorsAliases)) {
-      deprecations.noStringOperators();
-      this.dialect.queryGenerator.setOperatorsAliases(this.options.operatorsAliases);
+      this.dialect.QueryGenerator.setOperatorsAliases(this.options.operatorsAliases);
     } else if (typeof this.options.operatorsAliases === 'boolean') {
       deprecations.noBoolOperatorAliases();
     }
