@@ -615,7 +615,6 @@ class QueryGenerator {
       options.type,
       'INDEX',
       !this._dialect.supports.indexViaAlter ? concurrently : undefined,
-      'IF NOT EXISTS',
       this.quoteIdentifiers(options.name),
       this._dialect.supports.index.using === 1 && options.using ? `USING ${options.using}` : '',
       !this._dialect.supports.indexViaAlter ? `ON ${tableName}` : undefined,
