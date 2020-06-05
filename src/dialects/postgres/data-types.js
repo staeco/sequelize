@@ -313,7 +313,9 @@ module.exports = BaseTypes => {
     }
     static parse(value) {
       const b = Buffer.from(value, 'hex');
-      return wkx.Geometry.parse(b).toGeoJSON({ shortCrs: true });
+      const o = wkx.Geometry.parse(b).toGeoJSON({ shortCrs: true });
+      if (o.crs && o.crs.properties.name === 'EPSG:4326') delete o.crs;
+      return o;
     }
     _stringify(value, options) {
       return `ST_GeomFromGeoJSON(${options.escape(JSON.stringify(value))})`;
@@ -339,7 +341,9 @@ module.exports = BaseTypes => {
     }
     static parse(value) {
       const b = Buffer.from(value, 'hex');
-      return wkx.Geometry.parse(b).toGeoJSON({ shortCrs: true });
+      const o = wkx.Geometry.parse(b).toGeoJSON({ shortCrs: true });
+      if (o.crs && o.crs.properties.name === 'EPSG:4326') delete o.crs;
+      return o;
     }
     _stringify(value, options) {
       return `ST_GeomFromGeoJSON(${options.escape(JSON.stringify(value))})`;

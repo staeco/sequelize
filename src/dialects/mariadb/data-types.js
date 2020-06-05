@@ -99,7 +99,9 @@ module.exports = BaseTypes => {
       }
       // For some reason, discard the first 4 bytes
       value = value.slice(4);
-      return wkx.Geometry.parse(value).toGeoJSON({ shortCrs: true });
+      const o = wkx.Geometry.parse(value).toGeoJSON({ shortCrs: true });
+      if (o.crs && o.crs.properties.name === 'EPSG:4326') delete o.crs;
+      return o;
     }
     toSql() {
       return this.sqlType;
