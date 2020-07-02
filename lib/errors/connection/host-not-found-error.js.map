@@ -1,0 +1,1 @@
+{"version":3,"file":"host-not-found-error.js","sourceRoot":"","sources":["../../../src/errors/connection/host-not-found-error.js"],"names":[],"mappings":"AAAA,MAAM,eAAe,GAAG,OAAO,CAAC,uBAAuB,CAAC,CAAC;AAEzD;;GAEG;AACH,MAAM,iBAAkB,SAAQ,eAAe;IAC7C,YAAY,MAAM;QAChB,KAAK,CAAC,MAAM,CAAC,CAAC;QACd,IAAI,CAAC,IAAI,GAAG,4BAA4B,CAAC;IAC3C,CAAC;CACF;AAED,MAAM,CAAC,OAAO,GAAG,iBAAiB,CAAC"}

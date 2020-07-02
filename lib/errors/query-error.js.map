@@ -1,0 +1,1 @@
+{"version":3,"file":"query-error.js","sourceRoot":"","sources":["../../src/errors/query-error.js"],"names":[],"mappings":"AAAA,MAAM,SAAS,GAAG,OAAO,CAAC,cAAc,CAAC,CAAC;AAE1C;;GAEG;AACH,MAAM,UAAW,SAAQ,SAAS;IAChC,YAAY,OAAO;QACjB,KAAK,CAAC,OAAO,CAAC,CAAC;QACf,IAAI,CAAC,IAAI,GAAG,qBAAqB,CAAC;IACpC,CAAC;CACF;AAED,MAAM,CAAC,OAAO,GAAG,UAAU,CAAC"}

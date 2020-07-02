@@ -1,0 +1,1 @@
+{"version":3,"file":"sequelize-scope-error.js","sourceRoot":"","sources":["../../src/errors/sequelize-scope-error.js"],"names":[],"mappings":"AAAA,MAAM,SAAS,GAAG,OAAO,CAAC,cAAc,CAAC,CAAC;AAE1C;;GAEG;AACH,MAAM,mBAAoB,SAAQ,SAAS;IACzC,YAAY,MAAM;QAChB,KAAK,CAAC,MAAM,CAAC,CAAC;QACd,IAAI,CAAC,IAAI,GAAG,qBAAqB,CAAC;IACpC,CAAC;CACF;AAED,MAAM,CAAC,OAAO,GAAG,mBAAmB,CAAC"}

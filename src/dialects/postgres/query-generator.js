@@ -71,7 +71,9 @@ class PostgresQueryGenerator extends AbstractQueryGenerator {
     }
 
     if (options.partition) {
-      partition = ` PARTITION BY ${options.partition.type.toUpperCase()} (${this.quoteIdentifier(options.partition.attribute)})`;
+      partition = ` PARTITION BY ${options.partition.type.toUpperCase()} (${this.quoteIdentifier(
+        options.partition.attribute
+      )})`;
     }
     for (const attr in attributes) {
       const quotedAttr = this.quoteIdentifier(attr);

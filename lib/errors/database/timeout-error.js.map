@@ -1,0 +1,1 @@
+{"version":3,"file":"timeout-error.js","sourceRoot":"","sources":["../../../src/errors/database/timeout-error.js"],"names":[],"mappings":"AAAA,MAAM,aAAa,GAAG,OAAO,CAAC,qBAAqB,CAAC,CAAC;AAErD;;GAEG;AACH,MAAM,YAAa,SAAQ,aAAa;IACtC,YAAY,MAAM;QAChB,KAAK,CAAC,MAAM,CAAC,CAAC;QACd,IAAI,CAAC,IAAI,GAAG,uBAAuB,CAAC;IACtC,CAAC;CACF;AAED,MAAM,CAAC,OAAO,GAAG,YAAY,CAAC"}
