@@ -106,7 +106,7 @@ class PostgresQueryGenerator extends AbstractQueryGenerator {
         return acc;
       },
       []
-    ).join(',');
+    );
 
     if (options.partition && options.partition.type.toLowerCase() === 'list') {
       pks.push(this.quoteIdentifier(options.partition.attribute));
