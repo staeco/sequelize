@@ -1,0 +1,1 @@
+{"version":3,"file":"scope-error.js","sourceRoot":"","sources":["../../src/errors/scope-error.ts"],"names":[],"mappings":";;;;;AAAA,8DAAqC;AAErC;;GAEG;AACH,MAAM,UAAW,SAAQ,oBAAS;IAChC,YAAY,OAAe;QACzB,KAAK,CAAC,OAAO,CAAC,CAAC;QACf,IAAI,CAAC,IAAI,GAAG,qBAAqB,CAAC;IACpC,CAAC;CACF;AAED,kBAAe,UAAU,CAAC"}
