@@ -1,5 +1,6 @@
 import * as dataTypes from './data-types';
 import { logger } from './utils/logger';
+import Utils from './utils';
 
 function arrayToList(array: unknown[], timeZone: string | null, dialect: string, format: boolean): string {
   return array.reduce<string>((sql, val, i) => {
@@ -36,6 +37,10 @@ export function escape(val: unknown, timeZone: string | null, dialect: string, f
       // unicode compatibility)
       prependN = dialect === 'mssql';
       break;
+  }
+
+  if (val instanceof Utils.Literal) {
+    return val.val;
   }
 
   if (val instanceof Date) {
