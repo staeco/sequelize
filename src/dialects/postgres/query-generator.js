@@ -257,6 +257,21 @@ class PostgresQueryGenerator extends AbstractQueryGenerator {
         return str;
       }
     }
+
+    // use shorter cast syntax if possible
+    if (smth instanceof Utils.Cast) {
+      let result;
+      if (smth.val instanceof Utils.SequelizeMethod) {
+        result = this.handleSequelizeMethod(smth.val, tableName, factory, options, prepend);
+      } else if (_.isPlainObject(smth.val)) {
+        result = this.whereItemsQuery(smth.val);
+      } else {
+        result = this.escape(smth.val);
+      }
+
+      return `${result}::${smth.type.toLowerCase()}`;
+    }
+
     return super.handleSequelizeMethod.call(this, smth, tableName, factory, options, prepend);
   }
 
