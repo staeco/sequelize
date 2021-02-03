@@ -269,7 +269,7 @@ class PostgresQueryGenerator extends AbstractQueryGenerator {
         result = this.escape(smth.val);
       }
 
-      return `${result}::${smth.type.toLowerCase()}`;
+      return `${result.endsWith(')') ? result : `(${result})`}::${smth.type.toLowerCase()}`;
     }
 
     return super.handleSequelizeMethod.call(this, smth, tableName, factory, options, prepend);
